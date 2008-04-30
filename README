@@ -1,0 +1,12 @@
+priorities - group ratings for a list of priority items
+
+Copyright (c) 2008 Kentfield School District
+
+A ruby on rails 2.0 project.  Users sign up or log in and can then vote
+their priorities on a prebuilt list of items, in this case line items
+for our technology budget.  The list of items is imported into the (sqlite3)
+database at migration time from the 'budget_items.csv' file located
+in the db folder.
+
+For information contact pzingg AT kentfieldschools FULLSTOP org
+
