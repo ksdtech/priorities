@@ -1,0 +1,10 @@
+APP_CONFIG = {
+  :server        => 'http://server.example.com:3000',
+  :site_title    => "You Pick 'Em",
+  :mail_server   => 'smtp.example.com',
+  :mail_port     => 25,
+  :mail_domain   => 'example.com',
+  :mail_user     => 'admin',
+  :mail_password => 'admin',
+  :mail_auth     => :login
+}

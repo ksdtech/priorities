@@ -1,0 +1,17 @@
+<tr class="<%= cycle("even", "odd") %>">
+  <td><%= rating.id %></td>
+  <td><%=h rating.category %></td>
+  <td><%=h rating.description %></td>
+  <td><%=h rating.requester %></td>
+  <td align="right"><%= rating.quant_bacich %></td>
+  <td align="right"><%= rating.quant_kent %></td>
+  <td align="right"><%= rating.quant_district %></td>
+  <td align="right"><%= rating.quant_total %></td>
+  <td align="right"><%= fmt_dollars(rating.unit_cost) %></td>
+  <td align="right"><%= fmt_dollars(rating.total_cost) %></td>
+  <td><%= rating.recurs_annually ? 'Yes' : 'No' %></td>
+  <td><%=h rating.special_funding %></td>
+  <td><%= user_rank_input(current_user, rating) %></td>
+  <td><%= rating.average_rank %></td>
+  <td><%= rating.vote_count %></td>
+</tr>
