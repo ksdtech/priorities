@@ -72,3 +72,5 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
 end
 
+require 'faster_csv'
+
