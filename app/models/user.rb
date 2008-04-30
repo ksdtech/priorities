@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   
   # Virtual attribute for the unencrypted password
   attr_accessor :password
-
+  attr_accessor :will_activate
+  
   validates_presence_of     :first_name, :last_name, :login, :email
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?
@@ -51,9 +52,25 @@ class User < ActiveRecord::Base
   # attrs are :first_name, :last_name, :login, :email, :password
   def self.create_active_user(attrs)
     confirm_attrs = attrs.update(:password_confirmation => attrs[:password])
-    u = User.create(confirm_attrs)
-    u.update_attributes(:state => 'active', :activation_code => nil, :activated_at => Time.now)
+    u = User.new(confirm_attrs)
+    u.will_activate = true
+    u.save!
+    u.activate!
     u
+  end
+  
+  # csv file must have first_name, last_name, login, email, password in header line
+  def self.import
+    fname = File.join(RAILS_ROOT, 'db/users.csv')
+    FasterCSV.foreach(fname, :headers => true, :header_converters => :symbol) do |row|
+      h = row.to_hash
+      if User.count(:conditions => ['login=? OR email=?', h[:login], h[:email]]) == 0
+        begin
+          User.create_active_user(h)
+        rescue
+        end
+      end
+    end
   end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
@@ -104,6 +121,10 @@ class User < ActiveRecord::Base
   # Returns true if the user has just been activated.
   def recently_activated?
     @activated
+  end
+  
+  def will_be_activated?
+    @will_activate
   end
     
   protected
