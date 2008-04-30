@@ -1,5 +1,3 @@
-require 'faster_csv'
-
 class BudgetItem < ActiveRecord::Base
   acts_as_list :order => :position
   has_many :votes
