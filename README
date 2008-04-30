@@ -9,4 +9,15 @@ database at migration time from the 'budget_items.csv' file located
 in the db folder.
 
 For information contact pzingg AT kentfieldschools FULLSTOP org
+---
+Installation
 
+git clone the repository
+mkdir log, assign correct permissions
+mkdir tmp, assign correct permissions
+cd config
+cp database.yml.sample database.yml, then edit to suit your environment
+cp app_config.rb.sample app_config.rb, then edit to suit
+cd ..
+rake db:migrate
+script/server
