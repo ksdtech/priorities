@@ -28,7 +28,7 @@ class BudgetItem < ActiveRecord::Base
   
   def average_rank
     return nil unless vote_count
-    votes.average(:rank)
+    sprintf("%0.*f", 1, votes.average(:rank))
   end
   
   class << self    
