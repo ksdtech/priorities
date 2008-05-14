@@ -13,6 +13,11 @@ class ItemsController < ApplicationController
     end
     @items = BudgetItem.find(:all)
   end
+  
+  def report
+    @report = Report.find(:first)
+    @report.sort_weighted_items
+  end
 
   protected
   

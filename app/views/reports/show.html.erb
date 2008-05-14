@@ -1,0 +1,28 @@
+<p>
+  <b>Notes:</b>
+  <%=h @report.notes %>
+</p>
+
+<p>
+  <b>Cutoff low:</b>
+  <%=h @report.cutoff_high %>
+</p>
+
+<p>
+  <b>Cutoff medium:</b>
+  <%=h @report.cutoff_medium %>
+</p>
+
+<p>
+  <b>Discount cost:</b>
+  <%=h @report.discount_cost %>
+</p>
+
+<p>
+  <b>Discount point:</b>
+  <%=h @report.discount_point %>
+</p>
+
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>

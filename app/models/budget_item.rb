@@ -25,13 +25,29 @@ class BudgetItem < ActiveRecord::Base
     n = votes.count
     n > 0 ? n : nil
   end
-  
+
   def average_rank
-    return nil unless vote_count
-    sprintf("%0.*f", 1, votes.average(:rank))
+    return 0 if special?
+    return 10 unless vote_count
+    votes.average(:rank)
+  end
+    
+  def weighted_rank(report)
+    return 0 if special?
+    return 10 unless vote_count
+    rank = votes.average(:rank)
+    rank -= report.discount_points if total_cost <= report.discount_cost
+    rank
   end
   
   class << self    
+    def grand_total
+      BudgetItem.find(:all).inject(0) do |t, item| 
+        t += item.total_cost
+        t
+      end
+    end
+    
     def import
       fname = File.join(RAILS_ROOT, 'db/budget_items.csv')
       position = 0

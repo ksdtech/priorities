@@ -1,0 +1,37 @@
+<h1>Editing report</h1>
+
+<%= error_messages_for :report %>
+
+<% form_for(@report) do |f| %>
+  <p>
+    <b>Notes</b><br />
+    <%= f.text_area :notes %>
+  </p>
+
+  <p>
+    <b>Cutoff low</b><br />
+    <%= f.text_field :cutoff_high %>
+  </p>
+
+  <p>
+    <b>Cutoff medium</b><br />
+    <%= f.text_field :cutoff_medium %>
+  </p>
+
+  <p>
+    <b>Discount cost</b><br />
+    <%= f.text_field :discount_cost %>
+  </p>
+
+  <p>
+    <b>Discount point</b><br />
+    <%= f.text_field :discount_point %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @report %> |
+<%= link_to 'Back', reports_path %>

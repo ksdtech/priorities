@@ -1,0 +1,33 @@
+<p><%= link_to 'Change your vote', :action => 'index' %> or 
+<%= link_to 'Log out', '/logout' %>.</p>
+<h1>Grouped Report</h1>
+<table>
+<tr>
+  <th>Item</th>
+  <th>Category</th>
+  <th>Description</th>
+  <th>Requester</th>
+  <th>Bac.</th>
+  <th>Kent</th>
+  <th>D.O.</th>
+  <th>Total</th>
+  <th>Unit Cost</th>
+  <th>Total Cost</th>
+  <th>Rec?</th>
+  <th>Funding</th>
+  <th>Raw Rating</th>
+  <th>Weighted</th>
+  <th>Votes</th>
+</tr>
+<%= render :partial => "weighted", :collection => @report.items_base %>
+<%= render :partial => "group", :locals => { :bgcolor => "#ffcccc", :description => "Base Items", :subtotal => @report.subtotal_base } %>
+<%= render :partial => "weighted", :collection => @report.items_high %>
+<%= render :partial => "group", :locals => { :bgcolor => "#ffcccc", :description => "High Priority Items", :subtotal => @report.subtotal_high } %>
+<%= render :partial => "weighted", :collection => @report.items_medium %>
+<%= render :partial => "group", :locals => { :bgcolor => "#ffcccc", :description => "Medium Priority Items", :subtotal => @report.subtotal_medium } %>
+<%= render :partial => "weighted", :collection => @report.items_low %>
+<%= render :partial => "group", :locals => { :bgcolor => "#ffcccc", :description => "Low Priority Items", :subtotal => @report.subtotal_low } %>
+<%= render :partial => "weighted", :collection => @report.items_other %>
+<%= render :partial => "group", :locals => { :bgcolor => "#ffcccc", :description => "Other Items", :subtotal => @report.subtotal_other } %>
+<%= render :partial => "group", :locals => { :bgcolor => "#ffcc00", :description => "All Items", :subtotal => BudgetItem.grand_total } %>
+</table>

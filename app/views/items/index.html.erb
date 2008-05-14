@@ -2,7 +2,8 @@
 <p>Welcome, <%=h current_user.login %>!</p>
 <p>Enter a number from 1 to 3 (1 for most important, 3 for least important) in the "Your Rating" boxes.</p>
 <p>Don't forget to click one of the Submit buttons (at the top and bottom of the page) when you're done.</p>
-<p>If you're all done, you can <%= link_to 'Log out', '/logout' %>...  And thanks for voting.</p>
+<p>If you're all done, you can <%= link_to 'View grouped results', :action => 'report' %> or 
+<%= link_to 'Log out', '/logout' %>...  And thanks for voting.</p>
 <input type="submit" name="submit" value="Submit" />
 <table>
 <tr>

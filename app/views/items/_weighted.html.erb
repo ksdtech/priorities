@@ -1,0 +1,17 @@
+<tr class="<%= cycle("even", "odd") %>">
+  <td><%= weighted.item.id %></td>
+  <td><%=h weighted.item.category %></td>
+  <td><%=h weighted.item.description %></td>
+  <td><%=h weighted.item.requester %></td>
+  <td align="right"><%= weighted.item.quant_bacich %></td>
+  <td align="right"><%= weighted.item.quant_kent %></td>
+  <td align="right"><%= weighted.item.quant_district %></td>
+  <td align="right"><%= weighted.item.quant_total %></td>
+  <td align="right"><%= fmt_dollars(weighted.item.unit_cost) %></td>
+  <td align="right"><%= fmt_dollars(weighted.item.total_cost) %></td>
+  <td><%= weighted.item.recurs_annually ? 'Yes' : 'No' %></td>
+  <td><%=h weighted.item.special_funding %></td>
+  <td><%= rank_to_s(weighted.item.average_rank) %></td>
+  <td><%= rank_to_s(weighted.weighted_rank) %></td>
+  <td><%= weighted.item.vote_count %></td>
+</tr>

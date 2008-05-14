@@ -12,6 +12,6 @@
   <td><%= rating.recurs_annually ? 'Yes' : 'No' %></td>
   <td><%=h rating.special_funding %></td>
   <td><%= user_rank_input(current_user, rating) %></td>
-  <td><%= rating.average_rank %></td>
+  <td><%= rank_to_s(rating.average_rank) %></td>
   <td><%= rating.vote_count %></td>
 </tr>
