@@ -12,14 +12,14 @@ class CreateReports < ActiveRecord::Migration
     
     Report.create(:notes => 'Your notes here',
       :name            => 'weighted',
-      :cutoff_high     => 1.5, 
-      :cutoff_medium   => 2.5,
+      :cutoff_high     => 1.6, 
+      :cutoff_medium   => 2.4,
       :discount_cost   => 1000,
       :discount_points => 0.3)
     Report.create(:notes => 'Unweighted',
       :name            => 'unweighted',
-      :cutoff_high     => 1.5, 
-      :cutoff_medium   => 2.5,
+      :cutoff_high     => 1.6, 
+      :cutoff_medium   => 2.4,
       :discount_cost   => 0,
       :discount_points => 0)
   end

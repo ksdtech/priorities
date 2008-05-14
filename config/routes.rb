@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :budget_items, :controller => 'items'
   map.resources :reports
-
+  
   # restful_authentication --include-activation --stateful
   map.resources :users, :member => { :suspend   => :put,
                                :unsuspend => :put,

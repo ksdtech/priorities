@@ -1,5 +1,5 @@
 <tr class="<%= cycle("even", "odd") %>">
-  <td><%= weighted.item.id %></td>
+  <td><%= admin_item_link(weighted.item, admin) %></td>
   <td><%=h weighted.item.category %></td>
   <td><%=h weighted.item.description %></td>
   <td><%=h weighted.item.requester %></td>
@@ -12,6 +12,8 @@
   <td><%= weighted.item.recurs_annually ? 'Yes' : 'No' %></td>
   <td><%=h weighted.item.special_funding %></td>
   <td><%= rank_to_s(weighted.item.average_rank) %></td>
+<% if weighting -%>
   <td><%= rank_to_s(weighted.weighted_rank) %></td>
+<% end -%>
   <td><%= weighted.item.vote_count %></td>
 </tr>

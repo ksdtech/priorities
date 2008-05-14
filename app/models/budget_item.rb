@@ -22,6 +22,7 @@ class BudgetItem < ActiveRecord::Base
   end
   
   def vote_count
+    return nil if special?
     n = votes.count
     n > 0 ? n : nil
   end
@@ -33,6 +34,7 @@ class BudgetItem < ActiveRecord::Base
   end
     
   def weighted_rank(report)
+    return average_rank if report.discount_points == 0
     return 0 if special?
     return 10 unless vote_count
     rank = votes.average(:rank)

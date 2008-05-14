@@ -3,5 +3,9 @@
   <td><b><%= description %></b></td>
   <td colspan="6">&nbsp;</td>
   <td align="right"><b><%= fmt_dollars(subtotal) %></b></td>
+<% if weighting -%>
   <td colspan="5">&nbsp;</td>
+<% else -%>
+  <td colspan="4">&nbsp;</td>
+<% end -%>
 </tr>

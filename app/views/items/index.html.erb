@@ -23,7 +23,7 @@
   <th>Avg.</th>
   <th>Votes</th>
 </tr>
-<%= render :partial => "rating", :collection => @items %>
+<%= render :partial => "rating", :collection => @items, :locals => { :admin => @admin } %>
 </table>
 <input type="submit" name="submit" value="Submit" />
 </form>

@@ -4,30 +4,29 @@
 
 <% form_for(@report) do |f| %>
   <p>
-    <b>Notes</b><br />
-    <%= f.text_area :notes %>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
   </p>
-
   <p>
     <b>Cutoff low</b><br />
     <%= f.text_field :cutoff_high %>
   </p>
-
   <p>
     <b>Cutoff medium</b><br />
     <%= f.text_field :cutoff_medium %>
   </p>
-
   <p>
     <b>Discount cost</b><br />
     <%= f.text_field :discount_cost %>
   </p>
-
   <p>
     <b>Discount points</b><br />
     <%= f.text_field :discount_points %>
   </p>
-
+  <p>
+    <b>Notes</b><br />
+    <%= f.text_area :notes %>
+  </p>
   <p>
     <%= f.submit "Update" %>
   </p>
