@@ -15,7 +15,8 @@ class ItemsController < ApplicationController
   end
   
   def report
-    @report = Report.find(:first)
+    report_name = params[:weighted] ? 'weighted' : 'unweighted'
+    @report = Report.find_by_name(report_name)
     @report.sort_weighted_items
   end
 
