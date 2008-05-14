@@ -9,7 +9,7 @@ class WeightedItem
     elsif @weighted_rank < report.cutoff_high
       @bucket = :high
     elsif @weighted_rank < report.cutoff_medium
-      @bucket = :medium1
+      @bucket = :medium
     elsif @weighted_rank != 10 
       @bucket = :low
     else
